@@ -1,0 +1,11 @@
+[Unit]
+Description=JBoss EAP Service
+After=network.target
+
+[Service]
+User=jboss-eap
+ExecStart=/opt/jboss-eap-7.4/bin/standalone.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

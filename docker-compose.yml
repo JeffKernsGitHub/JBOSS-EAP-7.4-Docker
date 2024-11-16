@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  jboss:
+    image: jbosseap7:latest
+    container_name: my_jboss
+    environment:
+      JAVA_HOME: /opt/jdk17
+      JBOSS_HOME: /opt/jboss-eap-7.4
+    ports:
+      # 8080 where application is deployed, 9990 for admin console and 8787 to enable remote debugging
+      - 8080:8080
+      - 9990:9990
+      - 8787:8787
+    command: /opt/jboss-eap-7.4/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 --debug  
+    volumes:
+      - jboss-eap-log:/opt/jboss-eap-7.4/standalone/log
+volumes:
+  jboss-eap-log:
+    external: true
