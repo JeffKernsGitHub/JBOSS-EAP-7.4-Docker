@@ -1,7 +1,7 @@
 services:
   jboss:
-    image: jbosseap7:latest
-    container_name: my_jboss
+    image: jbosseap7ws:latest
+    container_name: dev_jboss
     environment:
       JAVA_HOME: /opt/jdk11
       JBOSS_HOME: /opt/jboss-eap-7.4
@@ -11,7 +11,6 @@ services:
       - 9990:9990      
       - 8787:8787
     command: /opt/jboss-eap-7.4/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 --debug
-    # command: /opt/jboss-eap-7.4/bin/standalone.sh  
     volumes:
       - jboss-eap-log:/opt/jboss-eap-7.4/standalone/log
 volumes:
