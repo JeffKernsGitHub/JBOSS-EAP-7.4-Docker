@@ -15,22 +15,22 @@ RUN useradd --system jboss-eap
 ## Start JDK
 
 # Copy JDK 17, jliked 'jre' in future
-COPY serverjre-11.0.25.zip /opt/
+COPY serverjre-11.0.26.zip /opt/
 
 # Extract JDK
-RUN unzip serverjre-11.0.25.zip -d /opt/
+RUN unzip serverjre-11.0.26.zip -d /opt/
 
 # Change owner 
-RUN chown -R root:jboss-eap /opt/serverjre-11.0.25
+RUN chown -R root:jboss-eap /opt/serverjre-11.0.26
 
 # Permission JDK
-RUN chmod -R 777 /opt/serverjre-11.0.25
+RUN chmod -R 777 /opt/serverjre-11.0.26
 
 # Create soft link to alias as /opt/jdk11
-RUN ln -s /opt/serverjre-11.0.25 /opt/jdk11
+RUN ln -s /opt/serverjre-11.0.26 /opt/jdk11
 
 # Remove JDK zip file
-RUN rm /opt/serverjre-11.0.25.zip
+RUN rm /opt/serverjre-11.0.26.zip
 
 # Export JAVA_HOME for rest of script
 #RUN export JAVA_HOME=/opt/jdk11
