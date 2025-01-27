@@ -1,18 +1,21 @@
 services:
-  jboss:
-    image: jbosseap7ws:latest
-    container_name: dev_jboss
+  jboss0:
+    image: jbosseap7:latest
+    container_name: my_jbossserver
     environment:
       JAVA_HOME: /opt/jdk11
       JBOSS_HOME: /opt/jboss-eap-7.4
+      LYNX_PROPERTY_FILE_PATH: /opt/Lynx
     ports:
       # 8080 where application is deployed, 9990 for admin console and 8787 to enable remote debugging
       - 8080:8080
       - 9990:9990      
       - 8787:8787
     command: /opt/jboss-eap-7.4/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 --debug 0.0.0.0:8787
+    # command: /opt/jboss-eap-7.4/bin/standalone.sh  
     volumes:
-      - jboss-eap-log:/opt/jboss-eap-7.4/standalone/log
+      - jboss-eap-log0:/opt/jboss-eap-7.4/standalone/log
+  
 volumes:
-  jboss-eap-log:
+  jboss-eap-log0:
     external: true

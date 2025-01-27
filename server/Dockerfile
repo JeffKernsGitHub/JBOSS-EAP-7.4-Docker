@@ -4,7 +4,7 @@ USER root
 
 # Update the image
 RUN dnf update -y
-RUN dnf install unzip nano -y
+RUN dnf install unzip nano freetype -y
 
 # Set working directory
 WORKDIR /opt

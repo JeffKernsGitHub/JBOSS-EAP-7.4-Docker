@@ -4,13 +4,15 @@ USER root
 
 # Update the image
 RUN dnf update -y
-RUN dnf install unzip freetype nano -y
+RUN dnf install unzip nano -y
 
 # Set working directory
 WORKDIR /opt
 
 # Create jboss-eap system user  
 RUN useradd --system jboss-eap
+
+## Start JDK
 
 # Copy JDK 11, jliked 'jre' in future
 COPY jdk-11.0.26_linux-x64_bin.tar.gz /opt/
@@ -60,6 +62,22 @@ RUN rm jboss-eap-7.4.zip
 # WORKDIR /opt/jboss-eap-7.4/bin
 # RUN export PATH=$PATH:/opt/jdk11/bin
 # RUN './add-user.sh -u mgmtuser1 -p password1! -cw'
+
+
+COPY Lynx.zip /opt/
+
+# Extract Lynx Config
+RUN unzip Lynx.zip -d /opt/
+
+# Change owner 
+RUN chown -R root:jboss-eap /opt/Lynx
+
+# Permission Lynx Config
+RUN chmod -R 777 /opt/Lynx
+
+# Delete zip
+RUN rm Lynx.zip
+
 
  # drop back to the regular JBOSS user - good practice
 USER jboss-eap

@@ -1,7 +1,7 @@
 jboss-eap-7.4.zip
-jdk-17.0.0.1.zip
 JBOSS EAP 7.4 Docker.code-workspace
-serverjre-11.0.25.zip
-jdk-11.0.25_linux-x64_bin.zip
 server/Lynx.zip
-server/serverjre-11.0.26.zip
+serverjre-11.0.26.zip
+serverdebug/Lynx.zip
+serverdebug/jdk-11.0.26_linux-x64_bin.tar.gz
+workstation/jdk-11.0.26_linux-x64_bin.tar.gz
