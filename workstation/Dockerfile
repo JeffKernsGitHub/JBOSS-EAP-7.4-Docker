@@ -4,7 +4,7 @@ USER root
 
 # Update the image
 RUN dnf update -y
-RUN dnf install unzip freetype nano -y
+RUN dnf install unzip nano freetype fontconfig -y
 
 # Set working directory
 WORKDIR /opt

@@ -1,6 +1,6 @@
 services:
   jboss0:
-    image: jbosseap7:latest
+    image: jbosseap7:server
     container_name: my_jbossserver
     environment:
       JAVA_HOME: /opt/jdk11
