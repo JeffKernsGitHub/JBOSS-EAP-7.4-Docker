@@ -11,7 +11,7 @@ services:
       - 8080:8080
       - 9990:9990      
       - 8787:8787
-    command: /opt/jboss-eap-7.4/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 --debug
+    command: /opt/jboss-eap-7.4/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 --debug 0.0.0.0:8787
     # command: /opt/jboss-eap-7.4/bin/standalone.sh  
     volumes:
       - jboss-eap-log0:/opt/jboss-eap-7.4/standalone/log
