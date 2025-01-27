@@ -12,25 +12,23 @@ WORKDIR /opt
 # Create jboss-eap system user  
 RUN useradd --system jboss-eap
 
-## Start JDK
-
-# Copy JDK 17, jliked 'jre' in future
-COPY jdk-11.0.26_linux-x64_bin.zip /opt/
+# Copy JDK 11, jliked 'jre' in future
+COPY jdk-11.0.26_linux-x64_bin.tar.gz /opt/
 
 # Extract JDK
-RUN unzip jdk-11.0.26_linux-x64_bin.zip -d /opt/
+RUN tar -xf jdk-11.0.26_linux-x64_bin.tar.gz
 
 # Change owner 
-RUN chown -R root:jboss-eap /opt/jdk-11.0.26_linux-x64_bin
+RUN chown -R root:jboss-eap /opt/jdk-11.0.26
 
 # Permission JDK
-RUN chmod -R 777 /opt/jdk-11.0.26_linux-x64_bin
+RUN chmod -R 777 /opt/jdk-11.0.26
 
 # Create soft link to alias as /opt/jdk11
-RUN ln -s /opt/jdk-11.0.25_linux-x64_bin/jdk-11.0.26 /opt/jdk11
+RUN ln -s /opt/jdk-11.0.26 /opt/jdk11
 
 # Remove JDK zip file
-RUN rm /opt/jdk-11.0.26_linux-x64_bin.zip
+RUN rm /opt/jdk-11.0.26_linux-x64_bin.tar.gz
 
 # Export JAVA_HOME for rest of script
 #RUN export JAVA_HOME=/opt/jdk11

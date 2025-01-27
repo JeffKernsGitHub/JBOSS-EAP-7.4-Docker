@@ -14,7 +14,7 @@ RUN useradd --system jboss-eap
 
 ## Start JDK
 
-# Copy JDK 17, jliked 'jre' in future
+# Copy JDK 11, jliked 'jre' in future
 COPY jdk-11.0.26_linux-x64_bin.tar.gz /opt/
 
 # Extract JDK
